@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en"> 
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="apple-mobile-web-app-title" content="WhoIsR7" />
         <meta name="application-name" content="WhoIsR7" />
         <meta name="msapplication-TileColor" content="#00f0ff" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>WhoIsR7</title>
+        <title>WhoIsR7 | Pro Joki Clash of Clans</title>
         <meta
             name="keywords"
             content="WhoIsR7, supercell, clash of clans, supercell store, top up clash of clans, tiktok, tiktok downloader, youtube, instagram whoisr7, x, twitter, facebook, discord, saweria"
@@ -23,10 +23,10 @@
         />
         <meta
             property="og:image"
-            content="https://whoisr7.github.io/image/whoisr7.png"
+            content="https://avatars.githubusercontent.com/u/217484999"
         />
         <link
-            href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&display=swap"
             rel="stylesheet"
         />
         <script
@@ -35,22 +35,202 @@
         ></script>
 
         <style>
+            :root {
+                --primary: #00f0ff;
+                --primary-dark: #007cf0;
+                --accent: #7c3aed;
+                --accent-light: #a78bfa;
+                --neon-pink: #ff006e;
+                --neon-green: #39ff14;
+                --bg-dark: #030014;
+                --bg-card: rgba(255, 255, 255, 0.02);
+                --text-primary: #ffffff;
+                --text-secondary: #a0aec0;
+            }
+
             * {
                 box-sizing: border-box;
                 margin: 0;
                 padding: 0;
             }
 
+            html {
+                scroll-behavior: smooth;
+            }
+
+            ::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: linear-gradient(180deg, var(--primary), var(--accent), var(--neon-pink));
+                border-radius: 10px;
+            }
+
             body {
                 font-family: "Outfit", sans-serif;
-                background: #000a1f;
-                color: #fff;
+                background: var(--bg-dark);
+                color: var(--text-primary);
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 min-height: 100vh;
                 padding-bottom: 40px;
                 overflow-x: hidden;
+            }
+
+            .loader-wrapper {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: var(--bg-dark);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+                transition: opacity 0.8s ease, visibility 0.8s ease;
+            }
+
+            .loader-wrapper.hidden {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .loader-logo {
+                font-family: "Orbitron", sans-serif;
+                font-size: 2rem;
+                font-weight: 900;
+                background: linear-gradient(135deg, var(--primary), var(--accent), var(--neon-pink));
+                background-size: 300% 300%;
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: gradientShift 2s ease infinite;
+                margin-bottom: 30px;
+            }
+
+            .loader-bar {
+                width: 200px;
+                height: 4px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 10px;
+                overflow: hidden;
+            }
+
+            .loader-progress {
+                width: 0%;
+                height: 100%;
+                background: linear-gradient(90deg, var(--primary), var(--accent), var(--neon-pink));
+                border-radius: 10px;
+                animation: loadProgress 1.5s ease forwards;
+            }
+
+            @keyframes loadProgress {
+                0% { width: 0%; }
+                100% { width: 100%; }
+            }
+
+            @keyframes gradientShift {
+                0%, 100% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+            }
+
+            .aurora-bg {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -3;
+                overflow: hidden;
+            }
+
+            .aurora {
+                position: absolute;
+                width: 150%;
+                height: 150%;
+                top: -25%;
+                left: -25%;
+                background: 
+                    radial-gradient(ellipse at 20% 20%, rgba(0, 240, 255, 0.15) 0%, transparent 40%),
+                    radial-gradient(ellipse at 80% 20%, rgba(124, 58, 237, 0.15) 0%, transparent 40%),
+                    radial-gradient(ellipse at 50% 80%, rgba(255, 0, 110, 0.1) 0%, transparent 40%),
+                    radial-gradient(ellipse at 80% 80%, rgba(57, 255, 20, 0.08) 0%, transparent 40%);
+                animation: auroraMove 20s ease-in-out infinite;
+            }
+
+            @keyframes auroraMove {
+                0%, 100% { transform: translate(0, 0) rotate(0deg); }
+                25% { transform: translate(5%, 5%) rotate(5deg); }
+                50% { transform: translate(-5%, 10%) rotate(-5deg); }
+                75% { transform: translate(-10%, -5%) rotate(3deg); }
+            }
+
+            .orb {
+                position: fixed;
+                border-radius: 50%;
+                filter: blur(80px);
+                z-index: -2;
+                animation: orbFloat 10s ease-in-out infinite;
+            }
+
+            .orb-1 {
+                width: 400px;
+                height: 400px;
+                background: rgba(0, 240, 255, 0.15);
+                top: -100px;
+                right: -100px;
+                animation-delay: 0s;
+            }
+
+            .orb-2 {
+                width: 300px;
+                height: 300px;
+                background: rgba(124, 58, 237, 0.15);
+                bottom: -50px;
+                left: -100px;
+                animation-delay: -5s;
+            }
+
+            .orb-3 {
+                width: 250px;
+                height: 250px;
+                background: rgba(255, 0, 110, 0.1);
+                top: 50%;
+                left: 50%;
+                animation-delay: -2.5s;
+            }
+
+            @keyframes orbFloat {
+                0%, 100% { transform: translate(0, 0) scale(1); }
+                33% { transform: translate(30px, -30px) scale(1.1); }
+                66% { transform: translate(-20px, 20px) scale(0.9); }
+            }
+
+            .grid-bg {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                background-image: 
+                    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+                background-size: 50px 50px;
+                animation: gridMove 20s linear infinite;
+            }
+
+            @keyframes gridMove {
+                0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+                100% { transform: perspective(500px) rotateX(60deg) translateY(50px); }
             }
 
             #tsparticles {
@@ -64,195 +244,938 @@
 
             .profile-container {
                 text-align: center;
-                margin: 70px 20px 40px;
+                margin: 100px 20px 40px;
+                position: relative;
+            }
+
+            .profile-wrapper {
+                position: relative;
+                display: inline-block;
+            }
+
+            .profile-hexagon {
+                position: relative;
+                width: 180px;
+                height: 180px;
+            }
+
+            .hexagon-border {
+                position: absolute;
+                top: -10px;
+                left: -10px;
+                right: -10px;
+                bottom: -10px;
+                background: conic-gradient(
+                    from 0deg,
+                    var(--primary),
+                    var(--accent),
+                    var(--neon-pink),
+                    var(--neon-green),
+                    var(--primary)
+                );
+                clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+                animation: rotateBorder 4s linear infinite;
+            }
+
+            @keyframes rotateBorder {
+                to { transform: rotate(360deg); }
+            }
+
+            .hexagon-inner {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: var(--bg-dark);
+                clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             .profile-container img {
-                width: 160px;
-                height: 160px;
+                width: 150px;
+                height: 150px;
                 border-radius: 50%;
                 object-fit: cover;
-                box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
-                transition: transform 0.3s ease;
+                box-shadow: 
+                    0 0 50px rgba(0, 240, 255, 0.4),
+                    0 0 100px rgba(124, 58, 237, 0.2);
+                animation: imgPulse 3s ease-in-out infinite;
+            }
+
+            @keyframes imgPulse {
+                0%, 100% { 
+                    box-shadow: 
+                        0 0 50px rgba(0, 240, 255, 0.4),
+                        0 0 100px rgba(124, 58, 237, 0.2);
+                }
+                50% { 
+                    box-shadow: 
+                        0 0 70px rgba(0, 240, 255, 0.6),
+                        0 0 120px rgba(124, 58, 237, 0.4);
+                }
             }
 
             .profile-container img:hover {
-                transform: scale(1.07);
+                animation: none;
+                transform: scale(1.1);
+                transition: transform 0.3s ease;
             }
 
-            .profile-container h1 {
-                margin-top: 20px;
-                font-size: 2.8rem;
-                font-weight: 800;
-                background: linear-gradient(90deg, #007cf0, #00e0ff);
+            .status-ring {
+                position: absolute;
+                bottom: 15px;
+                right: 15px;
+                width: 35px;
+                height: 35px;
+                background: var(--bg-dark);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .status-dot {
+                width: 20px;
+                height: 20px;
+                background: linear-gradient(135deg, #22c55e, #4ade80);
+                border-radius: 50%;
+                animation: statusPulse 2s ease-in-out infinite;
+            }
+
+            @keyframes statusPulse {
+                0%, 100% { 
+                    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7),
+                                0 0 20px rgba(34, 197, 94, 0.5);
+                }
+                50% { 
+                    box-shadow: 0 0 0 15px rgba(34, 197, 94, 0),
+                                0 0 30px rgba(34, 197, 94, 0.3);
+                }
+            }
+
+            .glitch-wrapper {
+                position: relative;
+                margin-top: 30px;
+            }
+
+            .glitch-title {
+                font-family: "Orbitron", sans-serif;
+                font-size: 3.2rem;
+                font-weight: 900;
+                text-transform: uppercase;
+                background: linear-gradient(135deg, #fff 0%, var(--primary) 50%, var(--accent) 100%);
                 -webkit-background-clip: text;
+                background-clip: text;
                 -webkit-text-fill-color: transparent;
-                text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+                position: relative;
+                letter-spacing: 4px;
             }
+
+            .glitch-title::before,
+            .glitch-title::after {
+                content: 'WhoIsR7';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, var(--primary), var(--accent));
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .glitch-title::before {
+                animation: glitch-1 2s infinite linear alternate-reverse;
+                clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+            }
+
+            .glitch-title::after {
+                animation: glitch-2 3s infinite linear alternate-reverse;
+                clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+            }
+
+            @keyframes glitch-1 {
+                0%, 90%, 100% { transform: translate(0); }
+                92% { transform: translate(-5px, 2px); }
+                94% { transform: translate(5px, -2px); }
+                96% { transform: translate(-3px, 1px); }
+                98% { transform: translate(3px, -1px); }
+            }
+
+            @keyframes glitch-2 {
+                0%, 90%, 100% { transform: translate(0); }
+                91% { transform: translate(4px, 1px); }
+                93% { transform: translate(-4px, -1px); }
+                95% { transform: translate(2px, 2px); }
+                97% { transform: translate(-2px, -2px); }
+            }
+
+            .cyber-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                margin-top: 15px;
+                padding: 10px 20px;
+                background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(124, 58, 237, 0.1));
+                border: 1px solid transparent;
+                border-image: linear-gradient(135deg, var(--primary), var(--accent)) 1;
+                font-size: 0.9rem;
+                color: var(--primary);
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .cyber-badge::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                animation: badgeShine 3s infinite;
+            }
+
+            @keyframes badgeShine {
+                0% { left: -100%; }
+                50%, 100% { left: 100%; }
+            }
+
+            .cyber-badge i {
+                color: var(--neon-green);
+                text-shadow: 0 0 10px var(--neon-green);
+            }
+
             .description {
-                margin-top: 8px;
-                font-size: 1rem;
+                margin-top: 20px;
+                font-size: 1.15rem;
                 font-weight: 400;
-                color: #c6bfff;
-                text-shadow: 0 0 6px rgba(147, 
-                112, 219, 0.3);
+                color: var(--text-secondary);
+                max-width: 450px;
+                margin-left: auto;
+                margin-right: auto;
+                line-height: 1.7;
             }
+
+            .highlight {
+                background: linear-gradient(135deg, var(--primary), var(--accent));
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-weight: 700;
+            }
+
+            .section-header {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
+                margin: 50px 0 25px;
+            }
+
+            .section-line {
+                width: 50px;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, var(--primary));
+            }
+
+            .section-line:last-child {
+                background: linear-gradient(90deg, var(--primary), transparent);
+            }
+
+            .section-title {
+                font-family: "Orbitron", sans-serif;
+                font-size: 1rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                color: var(--primary);
+                text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+            }
+
+            .services-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+                padding: 0 20px;
+                width: 90%;
+                max-width: 500px;
+                margin-bottom: 40px;
+            }
+
+            .service-card {
+                padding: 25px 15px;
+                background: var(--bg-card);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                border-radius: 20px;
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                cursor: default;
+            }
+
+            .service-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(135deg, 
+                    rgba(0, 240, 255, 0.1) 0%, 
+                    transparent 50%,
+                    rgba(124, 58, 237, 0.1) 100%);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .service-card:hover::before {
+                opacity: 1;
+            }
+
+            .service-card:hover {
+                transform: translateY(-10px) scale(1.05);
+                border-color: var(--primary);
+                box-shadow: 
+                    0 20px 40px rgba(0, 240, 255, 0.2),
+                    0 0 0 1px rgba(0, 240, 255, 0.3),
+                    inset 0 0 30px rgba(0, 240, 255, 0.05);
+            }
+
+            .service-icon {
+                font-size: 2.5rem;
+                margin-bottom: 12px;
+                display: block;
+                animation: iconFloat 3s ease-in-out infinite;
+            }
+
+            .service-card:nth-child(2) .service-icon {
+                animation-delay: -1s;
+            }
+
+            .service-card:nth-child(3) .service-icon {
+                animation-delay: -2s;
+            }
+
+            @keyframes iconFloat {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-8px); }
+            }
+
+            .service-name {
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: var(--text-primary);
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
             .button-grid {
                 display: grid;
                 grid-template-columns: 1fr;
-                gap: 10px;
-                padding: 20px;
+                gap: 14px;
+                padding: 0 20px;
                 width: 90%;
                 max-width: 500px;
             }
 
-            .open-btn {
-                background: rgba(255, 255, 255, 0.05);
-                border: 1.5px solid rgba(0, 240, 255, 0.1);
-                backdrop-filter: blur(12px);
+            .cyber-btn {
+                position: relative;
+                background: var(--bg-card);
+                backdrop-filter: blur(20px);
                 color: white;
-                padding: 14px 20px;
+                padding: 18px 24px;
                 border-radius: 16px;
-                font-size: 1.05rem;
+                font-size: 1rem;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                text-decoration: none;
+                -webkit-tap-highlight-color: transparent;
+                overflow: hidden;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+
+            .cyber-btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, 
+                    rgba(255, 255, 255, 0.1) 0%, 
+                    transparent 50%);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .cyber-btn::after {
+                content: '';
+                position: absolute;
+                top: -2px;
+                left: -2px;
+                right: -2px;
+                bottom: -2px;
+                background: linear-gradient(135deg, var(--primary), var(--accent), var(--neon-pink));
+                border-radius: 18px;
+                z-index: -1;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .cyber-btn:hover::before {
+                opacity: 1;
+            }
+
+            .cyber-btn:hover::after {
+                opacity: 1;
+            }
+
+            .cyber-btn:hover {
+                transform: translateY(-5px) scale(1.02);
+                border-color: transparent;
+                box-shadow: 
+                    0 20px 40px rgba(0, 240, 255, 0.3),
+                    0 0 60px rgba(124, 58, 237, 0.2);
+            }
+
+            .cyber-btn:active {
+                transform: translateY(-2px) scale(0.98);
+            }
+
+            .btn-icon-wrap {
+                width: 50px;
+                height: 50px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 10px;
-                transition: 0.25s ease;
-                box-shadow: 0 0 10px rgba(0, 240, 255, 0.08);
-                text-decoration: none;
-                -webkit-tap-highlight-color: transparent;
+                border-radius: 14px;
+                font-size: 1.3rem;
+                flex-shrink: 0;
+                position: relative;
+                overflow: hidden;
             }
 
-            .open-btn:hover {
-                transform: translateY(-4px);
-                background: rgba(0, 240, 255, 0.2);
+            .btn-icon-wrap::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+                transition: left 0.5s ease;
+            }
+
+            .cyber-btn:hover .btn-icon-wrap::before {
+                left: 100%;
+            }
+
+            .btn-donate .btn-icon-wrap {
+                background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+                box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
+            }
+
+            .btn-youtube .btn-icon-wrap {
+                background: linear-gradient(135deg, #ff0000, #cc0000);
+                box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
+            }
+
+            .btn-tiktok .btn-icon-wrap {
+                background: linear-gradient(135deg, #00f2ea, #ff0050);
+                box-shadow: 0 5px 20px rgba(255, 0, 80, 0.4);
+            }
+
+            .btn-instagram .btn-icon-wrap {
+                background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+                box-shadow: 0 5px 20px rgba(253, 29, 29, 0.4);
+            }
+
+            .btn-facebook .btn-icon-wrap {
+                background: linear-gradient(135deg, #1877f2, #0d65d9);
+                box-shadow: 0 5px 20px rgba(24, 119, 242, 0.4);
+            }
+
+            .btn-twitter .btn-icon-wrap {
+                background: linear-gradient(135deg, #1da1f2, #000000);
+                box-shadow: 0 5px 20px rgba(29, 161, 242, 0.4);
+            }
+
+            .btn-discord .btn-icon-wrap {
+                background: linear-gradient(135deg, #5865f2, #4752c4);
+                box-shadow: 0 5px 20px rgba(88, 101, 242, 0.4);
+            }
+
+            .btn-content {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                flex: 1;
+            }
+
+            .btn-title {
+                font-weight: 700;
+                font-size: 1.05rem;
+                letter-spacing: 0.5px;
+            }
+
+            .btn-subtitle {
+                font-size: 0.8rem;
+                color: var(--text-secondary);
+                margin-top: 3px;
+            }
+
+            .btn-arrow {
+                font-size: 1.2rem;
+                color: var(--text-secondary);
+                transition: all 0.3s ease;
+            }
+
+            .cyber-btn:hover .btn-arrow {
+                transform: translateX(8px);
+                color: var(--primary);
+                text-shadow: 0 0 20px var(--primary);
+            }
+
+            .cyber-divider {
+                width: 90%;
+                max-width: 500px;
+                height: 1px;
+                background: linear-gradient(90deg, 
+                    transparent, 
+                    var(--primary), 
+                    var(--accent), 
+                    var(--primary), 
+                    transparent);
+                margin: 40px 0;
+                position: relative;
+            }
+
+            .cyber-divider::before {
+                content: '◆';
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                background: var(--bg-dark);
+                padding: 0 15px;
+                color: var(--primary);
+                font-size: 0.8rem;
             }
 
             footer {
                 margin-top: auto;
-                font-size: 12px;
+                font-size: 14px;
                 text-align: center;
-                padding: 20px;
-                color: #bbb;
+                padding: 40px 20px;
+                color: var(--text-secondary);
                 -webkit-tap-highlight-color: transparent;
             }
 
             footer a {
-                color: #00e0ff;
+                color: var(--primary);
                 text-decoration: none;
                 font-weight: 600;
+                transition: all 0.3s ease;
+                position: relative;
+            }
+
+            footer a::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 0%;
+                height: 2px;
+                background: linear-gradient(90deg, var(--primary), var(--accent));
+                transition: width 0.3s ease;
+            }
+
+            footer a:hover::after {
+                width: 100%;
+            }
+
+            footer a:hover {
+                text-shadow: 0 0 20px var(--primary);
+            }
+
+            .footer-heart {
+                color: var(--neon-pink);
+                animation: heartbeat 1.5s ease-in-out infinite;
+                display: inline-block;
+            }
+
+            @keyframes heartbeat {
+                0%, 100% { transform: scale(1); }
+                25% { transform: scale(1.3); }
+                50% { transform: scale(1); }
+                75% { transform: scale(1.3); }
+            }
+
+            .reveal {
+                opacity: 0;
+                transform: translateY(40px);
+                transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+
+            .reveal.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .cursor {
+                width: 20px;
+                height: 20px;
+                border: 2px solid var(--primary);
+                border-radius: 50%;
+                position: fixed;
+                pointer-events: none;
+                z-index: 9998;
+                transition: transform 0.15s ease, opacity 0.15s ease;
+                transform: translate(-50%, -50%);
+            }
+
+            .cursor-dot {
+                width: 6px;
+                height: 6px;
+                background: var(--primary);
+                border-radius: 50%;
+                position: fixed;
+                pointer-events: none;
+                z-index: 9999;
+                transform: translate(-50%, -50%);
+                box-shadow: 0 0 20px var(--primary);
+            }
+
+            .cursor.hover {
+                transform: translate(-50%, -50%) scale(2);
+                background: rgba(0, 240, 255, 0.1);
+                border-color: var(--accent);
+            }
+
+            @media (max-width: 768px) {
+                .cursor, .cursor-dot {
+                    display: none;
+                }
             }
 
             @media (max-width: 480px) {
-                .profile-container h1 {
+                .glitch-title {
                     font-size: 2rem;
+                    letter-spacing: 2px;
+                }
+
+                .profile-hexagon {
+                    width: 150px;
+                    height: 150px;
+                }
+
+                .profile-container img {
+                    width: 120px;
+                    height: 120px;
+                }
+
+                .services-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 10px;
+                }
+
+                .service-card {
+                    padding: 18px 10px;
+                }
+
+                .service-icon {
+                    font-size: 1.8rem;
+                }
+
+                .service-name {
+                    font-size: 0.7rem;
+                }
+
+                .btn-icon-wrap {
+                    width: 44px;
+                    height: 44px;
+                }
+
+                .cyber-badge {
+                    font-size: 0.75rem;
+                    padding: 8px 15px;
                 }
             }
         </style>
     </head>
 
     <body>
+        <div class="loader-wrapper">
+            <div class="loader-logo">WhoIsR7</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+
+        <div class="cursor"></div>
+        <div class="cursor-dot"></div>
+
+        <div class="aurora-bg">
+            <div class="aurora"></div>
+        </div>
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
         <div id="tsparticles"></div>
 
-        <div class="profile-container">
-            <img
-                src="https://whoisr7.github.io/image/whoisr7.png"
-                alt="Profile Picture"
-            />
-            <h1>WhoIsR7</h1>
+        <div class="profile-container reveal">
+            <div class="profile-wrapper">
+                <div class="profile-hexagon">
+                    <div class="hexagon-border"></div>
+                    <div class="hexagon-inner">
+                        <img
+                            src="https://whoisr7.github.io/image/whoisr7.png"
+                            alt="WhoIsR7 Profile Picture"
+                        />
+                    </div>
+                </div>
+                <div class="status-ring">
+                    <div class="status-dot"></div>
+                </div>
+            </div>
+            
+            <div class="glitch-wrapper">
+                <h1 class="glitch-title">WhoIsR7</h1>
+            </div>
+            
+            <div class="cyber-badge">
+                <i class="fas fa-shield-halved"></i>
+                Pro Joki Player
+            </div>
+            
             <p class="description">
-                JASA JOKI PUSH Trophy, CWL (naikin liga/attack), war attack,
-                dll. langsung DM!!!
+                <span class="highlight">JASA JOKI</span> Push Trophy, CWL, War Attack & More! 🏆
             </p>
         </div>
 
-        <div class="button-grid">
-            <a
-                class="open-btn"
-                href="https://sociabuzz.com/whoisr7/donate"
-                target="_blank"
-                ><i class="fas fa-gift"></i> Donate Sociabuzz</a
-            >
-            <a
-                class="open-btn"
-                href="https://www.youtube.com/channel/UCff44bSaaNr0XUI_gLmcs_A/join"
-                target="_blank"
-                ><i class="fab fa-youtube"></i> Membership YouTube</a
-            >
-            <a
-                class="open-btn"
-                href="https://youtube.com/@whoisr7"
-                target="_blank"
-                ><i class="fab fa-youtube"></i> YouTube</a
-            >
-            <a
-                class="open-btn"
-                href="https://www.tiktok.com/@_whoisr7_"
-                target="_blank"
-                ><i class="fab fa-tiktok"></i> TikTok</a
-            >
-            <a
-                class="open-btn"
-                href="https://www.instagram.com/risqy53"
-                target="_blank"
-                ><i class="fab fa-instagram"></i> Instagram</a
-            >
-            <a
-                class="open-btn"
-                href="https://www.facebook.com/share/1LnvjHi2dG/"
-                target="_blank"
-                ><i class="fa-brands fa-facebook"></i> Facebook</a
-            >
-            <a class="open-btn" href="https://x.com/R7Risqy" target="_blank"
-                ><i class="fab fa-x"></i> X-Twitter</a
-            >
-            <a
-                class="open-btn"
-                href="https://discord.gg/M6UqEcnrDN"
-                target="_blank"
-                ><i class="fab fa-discord"></i> Discord Server</a
-            >
-            <a
-                class="open-btn"
-                href="https://discord.com/users/668755563626364938"
-                target="_blank"
-                ><i class="fab fa-discord"></i> Discord User</a
-            >
+        <div class="section-header reveal">
+            <div class="section-line"></div>
+            <div class="section-title">Services</div>
+            <div class="section-line"></div>
         </div>
 
-        <footer>
-            © <a href="https://oyy-gus.github.io" target="_blank">oyy-gus</a> |
-            <a href="https://github.com/oyy-gus/oyy-gus.github.io/fork" target="_blank"
-                >Fork this</a
-            >
+        <div class="services-grid reveal">
+            <div class="service-card">
+                <span class="service-icon">🏆</span>
+                <div class="service-name">Push Trophy</div>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">⚔️</span>
+                <div class="service-name">CWL Attack</div>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🛡️</span>
+                <div class="service-name">War Attack</div>
+            </div>
+        </div>
+
+        <div class="cyber-divider"></div>
+
+        <div class="section-header reveal">
+            <div class="section-line"></div>
+            <div class="section-title">Connect</div>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="button-grid">
+            <a class="cyber-btn btn-donate reveal" href="https://sociabuzz.com/whoisr7/donate" target="_blank">
+                <div class="btn-icon-wrap"><i class="fas fa-heart"></i></div>
+                <div class="btn-content">
+                    <span class="btn-title">Support Me</span>
+                    <span class="btn-subtitle">Sociabuzz Donation</span>
+                </div>
+                <i class="fas fa-arrow-right btn-arrow"></i>
+            </a>
+
+            <a class="cyber-btn btn-youtube reveal" href="https://www.youtube.com/channel/UCff44bSaaNr0XUI_gLmcs_A/join" target="_blank">
+                <div class="btn-icon-wrap"><i class="fab fa-youtube"></i></div>
+                <div class="btn-content">
+                    <span class="btn-title">Join Membership</span>
+                    <span class="btn-subtitle">Exclusive Content</span>
+                </div>
+                <i class="fas fa-arrow-right btn-arrow"></i>
+            </a>
+
+            <a class="cyber-btn btn-youtube reveal" href="https://youtube.com/@whoisr7" target="_blank">
+                <div class="btn-icon-wrap"><i class="fab fa-youtube"></i></div>
+                <div class="btn-content">
+                    <span class="btn-title">YouTube</span>
+                    <span class="btn-subtitle">@whoisr7</span>
+                </div>
+                <i class="fas fa-arrow-right btn-arrow"></i>
+            </a>
+
+            <a class="cyber-btn btn-tiktok reveal" href="https://www.tiktok.com/@_whoisr7_" target="_blank">
+                <div class="btn-icon-wrap"><i class="fab fa-tiktok"></i></div>
+                <div class="btn-content">
+                    <span class="btn-title">TikTok</span>
+                    <span class="btn-subtitle">@_whoisr7_</span>
+                </div>
+                <i class="fas fa-arrow-right btn-arrow"></i>
+            </a>
+
+            <a class="cyber-btn btn-instagram reveal" href="https://www.instagram.com/risqy53" target="_blank">
+                <div class="btn-icon-wrap"><i class="fab fa-instagram"></i></div>
+                <div class="btn-content">
+                    <span class="btn-title">Instagram</span>
+                    <span class="btn-subtitle">@risqy53</span>
+                </div>
+                <i class="fas fa-arrow-right btn-arrow"></i>
+            </a>
+
+            <a class="cyber-btn btn-facebook reveal" href="https://www.facebook.com/share/1LnvjHi2dG/" target="_blank">
+                <div class="btn-icon-wrap"><i class="fab fa-facebook-f"></i></div>
+                <div class="btn-content">
+                    <span class="btn-title">Facebook</span>
+                    <span class="btn-subtitle">Connect with me</span>
+                </div>
+                <i class="fas fa-arrow-right btn-arrow"></i>
+            </a>
+
+            <a class="cyber-btn btn-twitter reveal" href="https://x.com/R7Risqy" target="_blank">
+                <div class="btn-icon-wrap"><i class="fab fa-x-twitter"></i></div>
+                <div class="btn-content">
+                    <span class="btn-title">X (Twitter)</span>
+                    <span class="btn-subtitle">@R7Risqy</span>
+                </div>
+                <i class="fas fa-arrow-right btn-arrow"></i>
+            </a>
+
+            <a class="cyber-btn btn-discord reveal" href="https://discord.gg/M6UqEcnrDN" target="_blank">
+                <div class="btn-icon-wrap"><i class="fab fa-discord"></i></div>
+                <div class="btn-content">
+                    <span class="btn-title">Discord Server</span>
+                    <span class="btn-subtitle">Join the community</span>
+                </div>
+                <i class="fas fa-arrow-right btn-arrow"></i>
+            </a>
+
+            <a class="cyber-btn btn-discord reveal" href="https://discord.com/users/668755563626364938" target="_blank">
+                <div class="btn-icon-wrap"><i class="fab fa-discord"></i></div>
+                <div class="btn-content">
+                    <span class="btn-title">Discord DM</span>
+                    <span class="btn-subtitle">Chat directly</span>
+                </div>
+                <i class="fas fa-arrow-right btn-arrow"></i>
+            </a>
+        </div>
+
+        <footer class="reveal">
+            Made with <span class="footer-heart">❤</span> by 
+            <a href="https://oyy-gus.github.io" target="_blank">oyy-gus</a> | 
+            <a href="https://github.com/oyy-gus/oyy-gus.github.io/fork" target="_blank">Fork this</a>
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
         <script>
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    document.querySelector('.loader-wrapper').classList.add('hidden');
+                }, 1800);
+            });
+
+            const cursor = document.querySelector('.cursor');
+            const cursorDot = document.querySelector('.cursor-dot');
+            const hoverElements = document.querySelectorAll('a, button, .service-card');
+
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                cursorDot.style.left = e.clientX + 'px';
+                cursorDot.style.top = e.clientY + 'px';
+            });
+
+            hoverElements.forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+            });
+
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealOnScroll = () => {
+                revealElements.forEach((el, index) => {
+                    const elementTop = el.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 50) {
+                        setTimeout(() => {
+                            el.classList.add('active');
+                        }, index * 100);
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', revealOnScroll);
+            window.addEventListener('load', () => {
+                setTimeout(revealOnScroll, 1900);
+            });
+
             tsParticles.load("tsparticles", {
                 fullScreen: { enable: true, zIndex: -1 },
                 particles: {
-                    number: { value: 50 },
-                    color: { value: "#00f0ff" },
+                    number: { 
+                        value: 80,
+                        density: { enable: true, area: 800 }
+                    },
+                    color: { 
+                        value: ["#00f0ff", "#7c3aed", "#ff006e", "#39ff14"]
+                    },
                     shape: { type: "circle" },
-                    opacity: { value: 0.3 },
-                    size: { value: { min: 1, max: 3 } },
+                    opacity: { 
+                        value: { min: 0.1, max: 0.5 },
+                        animation: { enable: true, speed: 1, minimumValue: 0.1 }
+                    },
+                    size: { 
+                        value: { min: 1, max: 4 },
+                        animation: { enable: true, speed: 3, minimumValue: 0.5 }
+                    },
                     move: {
                         enable: true,
-                        speed: 2,
+                        speed: 1,
                         direction: "none",
-                        outModes: "bounce"
+                        random: true,
+                        straight: false,
+                        outModes: "bounce",
+                        attract: { enable: true, rotateX: 600, rotateY: 1200 }
                     },
                     links: {
                         enable: true,
                         color: "#00f0ff",
                         distance: 120,
-                        opacity: 0.25,
-                        width: 1
+                        opacity: 0.2,
+                        width: 1,
+                        triangles: { enable: true, opacity: 0.02 }
                     }
                 },
-                background: { color: "#000a1f" }
+                interactivity: {
+                    events: {
+                        onHover: { enable: true, mode: "grab" },
+                        onClick: { enable: true, mode: "push" }
+                    },
+                    modes: {
+                        grab: { distance: 180, links: { opacity: 0.5 } },
+                        push: { quantity: 4 }
+                    }
+                },
+                background: { color: "transparent" },
+                detectRetina: true
             });
         </script>
     </body>
